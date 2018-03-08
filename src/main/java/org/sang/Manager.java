@@ -13,7 +13,7 @@ public class Manager {
     @Column(name = "NAME")
     private String name;
 
-    @OneToOne(mappedBy = "manager", cascade = CascadeType.ALL, optional = true)
+    @OneToOne(mappedBy = "manager", optional = true)
     private Department department;
 
     public Integer getId() {

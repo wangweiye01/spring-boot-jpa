@@ -214,8 +214,6 @@ public class DataController {
 
         department.setCompany(company);
 
-        managerRepository.save(manager);
-        departmentRepository.save(department);
         companyRepository.save(company);
 
         System.out.println("OK");
@@ -233,6 +231,28 @@ public class DataController {
 
     @RequestMapping("/deleteCompany")
     public void deleteCompay() {
-        companyRepository.delete(4);
+        companyRepository.delete(5);
+    }
+
+    @RequestMapping("/updateCompany")
+    public void updateCompany() {
+        Company company = companyRepository.findOne(5);
+
+        company.setName("bianlizaixian");
+        companyRepository.save(company);
+    }
+
+    @RequestMapping("/saveManager")
+    public void saveManager() {
+        Manager manager = new Manager();
+        manager.setName("wangjingli");
+
+        Department department = new Department();
+        department.setName("yanfabu");
+
+        manager.setDepartment(department);
+        department.setManager(manager);
+
+        managerRepository.save(manager);
     }
 }
