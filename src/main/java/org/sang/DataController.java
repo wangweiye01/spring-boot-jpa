@@ -255,4 +255,18 @@ public class DataController {
 
         managerRepository.save(manager);
     }
+
+    /**
+     * 解除关联关系
+     */
+    @RequestMapping("/remove")
+    public void remove() {
+        Category category = categoryRepository.findOne(7);
+
+        Item item = category.getItemSet().iterator().next();
+
+        category.getItemSet().remove(item);
+
+        categoryRepository.save(category);
+    }
 }
